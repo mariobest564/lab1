@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Artist</title>
+    <style>
+        body {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<form action="/addArtistToSong" method="get">
+    <section>
+        <h2>Available Artists:</h2>
+        <input type="hidden" name="trackId" th:value="${trackId}"/>
+        <div th:each="artist : ${artists}">
+            <input type="radio" name="artistId" th:value="${artist.id}"
+                   th:text="${artist.firstName + ' ' + artist.lastName}"/>
+            <br/>
+        </div>
+        <br/>
+        <input type='submit' value='Add Artist'>
+    </section>
+</form>
+</body>
+</html>

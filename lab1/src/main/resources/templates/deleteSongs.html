@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Delete Songs</title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Delete Songs</h1>
+</header>
+<main>
+    <h2>Select songs to delete:</h2>
+    <form action="/songs/deleteMultiple" method="post">
+        <div th:each="song : ${songs}">
+            <input type="checkbox" name="songIds" th:value="${song.id}" th:text="${song.title}">
+            <br/>
+        </div>
+        <br/>
+        <button type="submit">Delete Selected Songs</button>
+    </form>
+    <form action="/songs" method="get">
+        <button type="submit">Cancel</button>
+    </form>
+</main>
+</body>
+</html>
